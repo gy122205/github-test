@@ -1,0 +1,18 @@
+## 2024-06-09
+- 自动安装了 axios 及其类型声明 @types/axios，便于后续进行网络请求。
+- 自动安装了 react-window 及其类型声明 @types/react-window，修正了 home.tsx 中 Row 组件参数类型，消除类型报错，实现虚拟滚动购物车商品列表。
+- 修正 `src/router/index.tsx` 路由配置为标准 React Router v6 格式，修复语法错误，示例包含 Home 路由。
+- 发现并说明了 `react-router-dom` 未安装导致路由文件无法导入该模块的终端报错，给出安装依赖的解决方法。
+- 发现并说明了 useRoutes 只能在 <Router> 组件内使用导致的控制台报错，给出在入口文件用 <BrowserRouter> 包裹的解决方法。
+- 将 home.tsx 虚拟滚动列表数据源由本地数据改为 getPhoto 接口数据，支持图片、标题、价格渲染，并修复类型报错。
+- 自动将虚拟滚动商品列表中的图片地址替换为国内可访问的百度图片链接，并修复相关类型和变量名问题，解决图片无法显示问题。
+- 实现虚拟滚动商品列表防止重复加载和加载结束提示：修正 getPhotos 为 getPhoto 并本地分页，增加 hasMore 状态，加载完毕后底部显示"没有更多了"。
+- 新增 CommentList 组件，实现商品评论列表的虚拟滚动和无限加载，包含用户名、评论内容和图片，模拟后端数据请求。
+- 新增 CommentList.css，完善评论列表样式。
+- 在 App.tsx 中引入并展示 CommentList 组件。
+- 为 src/router/index.tsx 中的 routes 添加 RouteObject[] 类型注解，消除 App.tsx 中的隐式 any[] 类型报错。
+- 为 CommentList 组件添加本地缓存功能，评论和分页信息会存储到 localStorage，刷新页面时优先读取缓存，提升加载速度。
+- 评论列表虚拟滚动重构为 react-window，极大提升大数据量下的滚动性能。
+- 评论数据缓存方式由 localStorage 升级为 indexedDB，支持更大数据量和更高性能，使用 idb 简化操作。
+- 评论图片链接统一为 .webp 格式，提升加载性能和用户体验。
+- 为评论图片添加 object-fit: cover 样式，优化图片显示效果，防止图片变形。 
