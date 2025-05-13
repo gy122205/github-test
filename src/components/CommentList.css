@@ -1,0 +1,20 @@
+.comment-list-virtual {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #f0f1f2;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.comment-item {
+  transition: box-shadow 0.2s;
+  border: 1px solid #353535;
+}
+
+.comment-item:hover {
+  box-shadow: 0 4px 12px #e0e0e0;
+}
+
+.comment-item img {
+  object-fit: cover;
+} 
